@@ -7,6 +7,9 @@ class TreeNode(object):
 
 class Solution(object):
     def preorderTraversal(self, root):
-        if root:
-            return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
-        return []
+        # root -> left -> right
+        if not root:
+            return []
+        if not root.left and not root.right:
+            return [root.val]
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)

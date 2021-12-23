@@ -5,6 +5,9 @@ class TreeNode(object):
         self.right = right
 class Solution(object):
     def postorderTraversal(self, root):
+        # left -> right -> root
         if not root:
             return []
+        if not root.left and not root.right:
+            return [root.val]
         return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
