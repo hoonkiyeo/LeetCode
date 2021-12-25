@@ -18,7 +18,6 @@ class Solution(object):
                 traverse(node.left, level+1)
             if node.right:
                 traverse(node.right, level+1)
-
         traverse(root, 0)
         return levels
 
