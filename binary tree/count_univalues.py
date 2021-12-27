@@ -6,21 +6,28 @@
 #         self.right = right
 class Solution(object):
     def countUnivalSubtrees(self, root):
+        if not root:
+            return 0
         self.count = 0
-        self.helper(root)
+        self.countuni(root)
         return self.count
 
-    def helper(self, root):
+    def countuni(self, root):
         if not root:
             return True
 
-        left = self.helper(root.left)
-        right = self.helper(root.right)
+        left = self.countuni(root.left)
+        right = self.countuni(root.right)
 
-        if left and right and (not root.left or root.left.val == root.val) and (
-                not root.right or root.right.val == root.val):
-            self.count += 1
-            return True
-        return False
+        if left == False or right == False
+            return False
+        if root.left and root.left.val != root.val:
+            return False
+        if root.right and root.right.val != root.val:
+            return False
+
+        self.count += 1
+        return True
+
 
 
