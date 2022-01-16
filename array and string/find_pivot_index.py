@@ -1,13 +1,11 @@
-# class Solution(object):
-#     def pivotIndex(self, nums):
-#         """
-#         :type nums: List[int]
-#         :rtype: int
-#         """
-#
-#
+class Solution(object):
+    def pivotIndex(self, nums):
+        total = sum(nums)
+        left_sum = 0
+        size = len(nums)
 
-nums = [1,7,3,6,5,6]
-
-for i, x in enumerate(nums):
-    print(i, x)
+        for i in range(size):
+            if left_sum == total - left_sum - nums[i]:
+                return i
+            left_sum += nums[i]
+        return -1
