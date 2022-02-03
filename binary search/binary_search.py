@@ -11,3 +11,5 @@ class Solution(object):
             elif nums[mid] < target:
                 left = mid + 1
         return -1
+
+
